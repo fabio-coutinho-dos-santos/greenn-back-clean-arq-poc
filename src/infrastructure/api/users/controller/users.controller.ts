@@ -9,7 +9,7 @@ export class UsersController {
     ) {}
 
   @Get(':id')
-  async findOne(@Param('id') id: number) {
+  async findById(@Param('id') id: number) {
     return await this.usersRepository.findOne(id);
   }
 }

@@ -27,7 +27,7 @@ describe('ProductsController', () => {
       }
     }
 
-    productRepositoyReal = new ProductsRepository();
+    // productRepositoyReal = new ProductsRepository();
 
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ProductsController],

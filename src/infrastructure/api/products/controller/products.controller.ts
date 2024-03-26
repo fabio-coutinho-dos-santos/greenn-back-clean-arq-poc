@@ -14,10 +14,11 @@ export class ProductsController {
   ) {}
 
   @Get(':id')
-  async findOne(@Param('id') productId: number) {
-    const product = await new GetCheckoutProduct(this.productRepository).execute(productId);
-    const seller = await new GetProductSeller(this.usersRepository).execute(product.seller_id)
+  async findOne(@Param('id') id: number) {
+    const product = await new GetCheckoutProduct(this.productRepository).execute(id);
+    const seller = await new GetProductSeller(this.usersRepository).execute(id)
     return {
+      ...
       product,
       seller
     }
