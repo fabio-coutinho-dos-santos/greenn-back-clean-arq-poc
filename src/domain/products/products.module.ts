@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { ProductsController } from './controller/products.controller';
+import { ProductsController } from '../../infrastructure/api/products/controller/products.controller';
 import { ProductsRepository } from 'src/infrastructure/database/typeorm/repositories/products.repository';
-import { ProductsRepositoryInterface } from 'src/domain/products/products.repository.interface';
+import { UsersRepository } from 'src/infrastructure/database/typeorm/repositories/users.repository';
 
 @Module({
   controllers: [ProductsController],
@@ -9,6 +9,10 @@ import { ProductsRepositoryInterface } from 'src/domain/products/products.reposi
     {
       provide: 'ProductsRepositoryInterface',
       useClass: ProductsRepository
+    },
+    {
+      provide: 'UsersRepositoryInterface',
+      useClass: UsersRepository
     }
   ]
 })
