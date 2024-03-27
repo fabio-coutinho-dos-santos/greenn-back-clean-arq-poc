@@ -4,9 +4,12 @@ import { GetCheckoutProduct } from '../../../../use-cases/products/get-checkout-
 import { UsersRepositoryInterface } from 'src/domain/users/users.repository.interface';
 import { GetProductSeller } from 'src/use-cases/products/get-product-seller/get-product-seller';
 import { Facade } from '../facades/products.facade';
+import { ApiTags } from '@nestjs/swagger';
+import { API_CONFIG } from 'src/config';
+import { ProductType } from 'src/domain/products/types/checkout-products-type';
 
-
-@Controller('products')
+@Controller(`${API_CONFIG.API_PREFIX}/${API_CONFIG.API_VERSION}/products`)
+@ApiTags('Products')
 export class ProductsController {
   constructor(
     @Inject('ProductsRepositoryInterface')
@@ -16,10 +19,10 @@ export class ProductsController {
   ) {}
 
   @Get(':id')
-  async findById(@Param('id') id: any) {
+  async findById(@Param('id') id: number) : Promise<ProductType> {
     const product = await new GetCheckoutProduct(this.productRepository).execute(id);
     const seller = await new GetProductSeller(this.usersRepository).execute(id);
-    
+
     return {
       ...product,
       seller,
