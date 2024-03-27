@@ -4,6 +4,7 @@ import { ProductsRepositoryInterface } from 'src/domain/products/products.reposi
 import { ProductModel } from '../mysql/entities/product.model';
 
 export class ProductsRepository implements ProductsRepositoryInterface {
+  
   @InjectRepository(ProductModel)
   private readonly productsRepository: Repository<ProductModel>;
 

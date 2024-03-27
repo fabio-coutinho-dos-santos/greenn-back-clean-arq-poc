@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ProductsController } from '../../infrastructure/api/products/controller/products.controller';
 import { ProductsRepository } from 'src/infrastructure/database/typeorm/repositories/products.repository';
 import { UsersRepository } from 'src/infrastructure/database/typeorm/repositories/users.repository';
-import { ProductsControllerFacade } from 'src/infrastructure/api/products/controller/products.controller.facade';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModel } from 'src/infrastructure/database/typeorm/mysql/entities/product.model';
 import { ConfigModule } from '@nestjs/config';
@@ -10,19 +9,16 @@ import { UserModel } from 'src/infrastructure/database/typeorm/mysql/entities/us
 
 @Module({
   imports: [TypeOrmModule.forFeature([ProductModel, UserModel, ConfigModule])],
-  controllers: [
-    ProductsController,
-    ProductsControllerFacade,
-  ],
+  controllers: [ProductsController],
   providers: [
     {
       provide: 'ProductsRepositoryInterface',
-      useClass: ProductsRepository
+      useClass: ProductsRepository,
     },
     {
       provide: 'UsersRepositoryInterface',
-      useClass: UsersRepository
-    }
-  ]
+      useClass: UsersRepository,
+    },
+  ],
 })
 export class ProductsModule {}

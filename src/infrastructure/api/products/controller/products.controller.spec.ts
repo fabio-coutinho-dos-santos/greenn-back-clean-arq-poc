@@ -1,9 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductsController } from './products.controller';
 import { ProductsRepositoryInterface } from '../../../../domain/products/products.repository.interface';
-import { InternalServerErrorException } from '@nestjs/common';
 import { GetCheckoutProduct } from '../../../../use-cases/products/get-checkout-product/get-checkout-product';
-import { ProductsRepository } from '../../../../infrastructure/database/typeorm/repositories/products.repository';
 import { CheckoutProductType } from 'src/domain/products/types/checkout-products-type';
 
 describe('ProductsController', () => {

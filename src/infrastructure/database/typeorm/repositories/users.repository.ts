@@ -11,6 +11,7 @@ export class UsersRepository implements UsersRepositoryInterface {
   create() {
     throw new Error('Method not implemented.');
   }
+
   // async findOne(id: number) {
   //   return await this.usersRepository.findOneBy({id});
   // }
