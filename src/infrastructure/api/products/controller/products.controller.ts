@@ -3,9 +3,8 @@ import { ProductsRepositoryInterface } from '../../../../domain/products/product
 import { GetCheckoutProduct } from '../../../../use-cases/products/get-checkout-product/get-checkout-product';
 import { UsersRepositoryInterface } from 'src/domain/users/users.repository.interface';
 import { GetProductSeller } from 'src/use-cases/products/get-product-seller/get-product-seller';
-import { Facade } from 'src/domain/products/facades/products.facade';
-import { CreateProductDto } from 'src/domain/products/dto/create-product.dto';
-import { Product } from 'src/domain/products/entities/product.entity';
+import { Facade } from '../facades/products.facade';
+
 
 @Controller('products')
 export class ProductsController {
