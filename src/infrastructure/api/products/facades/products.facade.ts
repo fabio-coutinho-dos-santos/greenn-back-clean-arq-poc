@@ -1,5 +1,5 @@
 import { UsersRepositoryInterface } from "src/domain/users/users.repository.interface";
-import { ProductsRepositoryInterface } from "../products.repository.interface";
+import { ProductsRepositoryInterface } from "../../../../domain/products/products.repository.interface";
 import { UsersRepository } from "src/infrastructure/database/typeorm/repositories/users.repository";
 import { ProductsRepository } from "src/infrastructure/database/typeorm/repositories/products.repository";
 import { GetCheckoutProduct } from "src/use-cases/products/get-checkout-product/get-checkout-product";
