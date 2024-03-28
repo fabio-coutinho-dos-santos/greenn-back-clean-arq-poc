@@ -1,12 +1,12 @@
-import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
+import { Controller, Get, Inject, Param } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ProductsRepositoryInterface } from '../../../../domain/products/products.repository.interface';
-import { GetCheckoutProduct } from '../../../../use-cases/products/get-checkout-product/get-checkout-product';
-import { UsersRepositoryInterface } from 'src/domain/users/users.repository.interface';
-import { GetProductSeller } from 'src/use-cases/products/get-product-seller/get-product-seller';
+import { UsersRepositoryInterface } from '../../../../domain/users/users.repository.interface';
 import { Facade } from '../facades/products.facade';
+import { API_CONFIG } from '../../../../config';
 
-
-@Controller('products')
+@Controller(`${API_CONFIG.API_PREFIX}/${API_CONFIG.API_VERSION}/products`)
+@ApiTags('Products')
 export class ProductsController {
   constructor(
     @Inject('ProductsRepositoryInterface')
@@ -16,20 +16,12 @@ export class ProductsController {
   ) {}
 
   @Get(':id')
-  async findById(@Param('id') id: any) {
-    const product = await new GetCheckoutProduct(this.productRepository).execute(id);
-    const seller = await new GetProductSeller(this.usersRepository).execute(id);
-    
-    return {
-      ...product,
-      seller,
-    };
-  }
-
-  @Get('/facade/:productId')
-  async findOne(@Param('productId') productId: number) {
-    const productsFacade = new Facade.Products();
-    const finalProduct = await productsFacade.getProduct(productId);
+  async findProductById(@Param('id') id: number) {
+    const productsFacade = new Facade.Products(
+      this.productRepository,
+      this.usersRepository,
+    );
+    const finalProduct = await productsFacade.getProduct(id);
     return finalProduct;
   }
 }
