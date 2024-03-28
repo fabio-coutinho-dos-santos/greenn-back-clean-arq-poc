@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ProductsController } from './products.controller';
 import { ProductsRepositoryInterface } from '../../../../domain/products/products.repository.interface';
 import { GetCheckoutProduct } from '../../../../use-cases/products/get-checkout-product/get-checkout-product';
-import { CheckoutProductType } from 'src/domain/products/types/checkout-products-type';
+import { CheckoutProductType } from '../types/checkout-products-type';
 
 describe('ProductsController', () => {
   let controller: ProductsController;
