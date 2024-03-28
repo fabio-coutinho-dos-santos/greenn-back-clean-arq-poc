@@ -1,7 +1,7 @@
-import { UsersRepositoryInterface } from 'src/domain/users/users.repository.interface';
+import { UsersRepositoryInterface } from '../../../../domain/users/users.repository.interface';
 import { ProductsRepositoryInterface } from '../../../../domain/products/products.repository.interface';
-import { GetCheckoutProduct } from 'src/use-cases/products/get-checkout-product/get-checkout-product';
-import { GetProductSeller } from 'src/use-cases/products/get-product-seller/get-product-seller';
+import { GetCheckoutProduct } from '../../../../use-cases/products/get-checkout-product/get-checkout-product';
+import { GetProductSeller } from '../../../..//use-cases/products/get-product-seller/get-product-seller';
 
 export module Facade {
   export class Products {

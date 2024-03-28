@@ -1,7 +1,7 @@
 import { Controller, Get, Inject, Param } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { API_CONFIG } from 'src/config';
-import { UsersRepositoryInterface } from 'src/domain/users/users.repository.interface';
+import { API_CONFIG } from '../../../../config';
+import { UsersRepositoryInterface } from '../../../../domain/users/users.repository.interface';
 
 @Controller(`${API_CONFIG.API_PREFIX}/${API_CONFIG.API_VERSION}/users`)
 @ApiTags('Users')
