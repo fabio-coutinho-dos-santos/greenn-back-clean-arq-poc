@@ -14,6 +14,7 @@ async function bootstrap() {
 	const document = SwaggerModule.createDocument(app, config);
 	SwaggerModule.setup(`${API_CONFIG.API_PREFIX}/${API_CONFIG.API_VERSION}/doc`, app, document);
 	app.useGlobalPipes(new ValidationPipe());
-	await app.listen(process.env.SERVER_PORT);
+	await app.listen(API_CONFIG.SERVER_PORT);
 }
+
 bootstrap();
