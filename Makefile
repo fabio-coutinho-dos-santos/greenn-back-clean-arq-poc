@@ -1,4 +1,4 @@
-DC=docker-compose --file docker-compose.dev.yml --env-file .env.dev
+DC=docker-compose --file docker-compose.dev.yml --env-file ./app/.env.dev
 
 .PHONY: up down migrate logs
 
