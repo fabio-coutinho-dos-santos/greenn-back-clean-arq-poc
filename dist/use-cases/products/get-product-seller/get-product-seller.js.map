@@ -1,1 +1,0 @@
-{"version":3,"file":"get-product-seller.js","sourceRoot":"","sources":["../../../../src/use-cases/products/get-product-seller/get-product-seller.ts"],"names":[],"mappings":";;;AAEA,MAAa,gBAAgB;IAC3B,YAA6B,eAAyC;QAAzC,oBAAe,GAAf,eAAe,CAA0B;IAAG,CAAC;IAE1E,KAAK,CAAC,OAAO,CAAC,QAAgB;QAC5B,OAAO,MAAM,IAAI,CAAC,eAAe,CAAC,OAAO,CAAC,QAAQ,CAAC,CAAC;IACtD,CAAC;CACF;AAND,4CAMC"}
