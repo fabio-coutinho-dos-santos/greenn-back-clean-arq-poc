@@ -1,8 +1,8 @@
 import { Controller, Get, Inject, Param } from '@nestjs/common';
-import { ProductsRepositoryInterface } from '../../../../domain/products/products.repository.interface';
-import { UsersRepositoryInterface } from '../../../..//domain/users/users.repository.interface';
-import { Facade } from '../facades/products.facade';
 import { ApiTags } from '@nestjs/swagger';
+import { ProductsRepositoryInterface } from '../../../../domain/products/products.repository.interface';
+import { UsersRepositoryInterface } from '../../../../domain/users/users.repository.interface';
+import { Facade } from '../facades/products.facade';
 import { API_CONFIG } from '../../../../config';
 
 @Controller(`${API_CONFIG.API_PREFIX}/${API_CONFIG.API_VERSION}/products`)
@@ -15,13 +15,13 @@ export class ProductsController {
     private readonly usersRepository: UsersRepositoryInterface,
   ) {}
 
-  @Get(':prouductId')
-  async findProductById(@Param('prouductId') prouductId: number) {
+  @Get(':id')
+  async findProductById(@Param('id') id: number) {
     const productsFacade = new Facade.Products(
       this.productRepository,
       this.usersRepository,
     );
-    const finalProduct = await productsFacade.getProduct(prouductId);
+    const finalProduct = await productsFacade.getProduct(id);
     return finalProduct;
   }
 }
